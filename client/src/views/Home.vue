@@ -6,8 +6,6 @@ import RepoList from '../components/repos/RepoList.vue'
 
 export default defineComponent({
   components: {
-    AppNavbar,
-    AppFooter,
     RepoList,
   },
 })
@@ -15,7 +13,6 @@ export default defineComponent({
 
 <template>
   <div class="overflow-hidden">
-    <AppNavbar />
     <main class="container min-h-[calc(100vh-282px)] max-w-[1024px]">
       <div class="mt-24 flex items-center justify-between">
         <h1 class="text-black font-bold text-3xl">My Repositories</h1>
@@ -31,6 +28,5 @@ export default defineComponent({
         <RepoList :repos="[]" />
       </section>
     </main>
-    <AppFooter />
   </div>
 </template>
