@@ -3,6 +3,7 @@ import CommitlyLogo from '../base/CommitlyLogo.vue'
 import UserProfile from '../profile/UserProfile.vue'
 import { defineComponent } from 'vue'
 export default defineComponent({
+  components: { CommitlyLogo, UserProfile },
   props: {
     name: String,
     imageUrl: {
@@ -10,7 +11,6 @@ export default defineComponent({
       default: '/images/profile-placeholder.png',
     },
   },
-  components: { CommitlyLogo, UserProfile },
 })
 </script>
 

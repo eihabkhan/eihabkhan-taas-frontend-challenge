@@ -2,11 +2,13 @@
 import { defineComponent } from 'vue'
 import AppNavbar from '../components/navigation/AppNavbar.vue'
 import AppFooter from '../components/navigation/AppFooter.vue'
+import RepoList from '../components/repos/RepoList.vue'
 
 export default defineComponent({
   components: {
     AppNavbar,
     AppFooter,
+    RepoList,
   },
 })
 </script>
@@ -20,13 +22,13 @@ export default defineComponent({
         <input
           type="text"
           placeholder="search"
-          class="bg-gray-100 px-4 py-2 rounded-lg"
+          class="bg-gray-100 px-4 py-2 rounded-lg outline-black"
         />
       </div>
       <section
         class="mt-8 bg-white border-[1px] border-black/10 p-4 pb-0 rounded-xl"
       >
-        <!-- REPO LIST -->
+        <RepoList :repos="[]" />
       </section>
     </main>
     <AppFooter />
