@@ -19,6 +19,7 @@ export default defineComponent({
 
         if (data.access_token) {
           setToken(data.access_token)
+          this.$router.push('/')
         }
       })
     },
