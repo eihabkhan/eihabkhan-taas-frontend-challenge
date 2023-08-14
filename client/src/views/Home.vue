@@ -2,10 +2,12 @@
 import { defineComponent } from 'vue'
 import RepoList from '../components/repos/RepoList.vue'
 import { getRepos } from '../services/Repo'
+import RepoSearchBar from '../components/repos/RepoSearchBar.vue'
 
 export default defineComponent({
   components: {
     RepoList,
+    RepoSearchBar,
   },
   data() {
     return {
@@ -20,6 +22,10 @@ export default defineComponent({
     const { data } = await getRepos()
 
     this.repos = data
+
+    console.log('====================================')
+    console.log(data)
+    console.log('====================================')
   },
   mounted() {
     window.onscroll = () => {
@@ -54,11 +60,8 @@ export default defineComponent({
         class="relative mt-24 flex items-center justify-between flex-wrap gap-6"
       >
         <h1 class="text-black font-bold text-3xl">My Repositories</h1>
-        <input
-          type="text"
-          placeholder="Search (WIP)"
-          class="bg-gray-100 px-4 py-2 rounded-lg outline-black flex-1 sm:flex-none"
-        />
+
+        <RepoSearchBar :repos="repos" />
       </div>
       <section
         class="mt-8 bg-white border-[1px] border-black/10 p-4 pb-0 rounded-xl"

@@ -28,11 +28,7 @@ export default defineComponent({
         :name="repo.name"
         :stars="repo.stargazers_count"
         :watchers="repo.watchers_count"
-        :updatedAt="
-          new Date(repo.updated_at).toLocaleDateString('en-uk', {
-            dateStyle: 'long',
-          })
-        "
+        :updatedAt="new Date(repo.updated_at)"
       />
     </ul>
   </div>

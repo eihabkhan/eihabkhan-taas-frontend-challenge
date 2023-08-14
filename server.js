@@ -84,7 +84,6 @@ app.get('/searchRepos', async function (req, res) {
 // REPO COMMITS
 app.get('/getCommits', async function (req, res) {
   const { owner, repo, branch = '', page = 1 } = req.query
-  console.log('PARAMS', req.query)
 
   const token = req.get('Authorization')
   await axios

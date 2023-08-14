@@ -69,10 +69,6 @@ There are a lot of opportunities to improve the current app, here are what I thi
 - Use cookies instead of localStorage 😱
 - Utilize SSR to reduce the client JS size which makes for faster page loads
 
-## What didn't get accomplished
-
-- The ability to search for a repo wasn't implemented yet unfortunately
-
 ## Have an issue running the app?
 
 If you have an issue with running the app then feel free to reach out: [eihabkhan1@gmail.com](https://mailto:eihabkhan1@gmail.com)

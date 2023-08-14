@@ -29,7 +29,7 @@ export default defineComponent({
         </div>
         <div class="inline-flex w-fit items-center justify-center gap-2">
           <span class="text-xs text-gray-400"
-            >Last active: {{ updatedAt }}</span
+            >Last active: {{ updatedAt?.toLocaleDateString('en-uk') }}</span
           >
         </div>
       </div>
