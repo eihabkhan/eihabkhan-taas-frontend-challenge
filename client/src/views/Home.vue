@@ -50,11 +50,11 @@ export default defineComponent({
 <template>
   <div class="overflow-hidden">
     <main class="container min-h-[calc(100vh-282px)] max-w-[1024px]">
-      <div class="mt-24 flex items-center justify-between">
+      <div class="relative mt-24 flex items-center justify-between">
         <h1 class="text-black font-bold text-3xl">My Repositories</h1>
         <input
           type="text"
-          placeholder="search"
+          placeholder="Search (WIP)"
           class="bg-gray-100 px-4 py-2 rounded-lg outline-black"
         />
       </div>

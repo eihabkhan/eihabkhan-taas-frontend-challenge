@@ -42,6 +42,7 @@ export default defineComponent({
           },
         }
       )({
+        // @ts-ignore
         variant: this.$props.variant,
       })
     },
