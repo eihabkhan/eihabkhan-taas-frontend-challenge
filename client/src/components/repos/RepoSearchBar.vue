@@ -42,14 +42,14 @@ watch(selected, (currVal, prevVal) => {
 </script>
 
 <template>
-  <div class="relative z-10 w-72">
+  <div class="relative z-10 w-full sm:w-72">
     <Combobox v-model="selected">
       <div class="relative mt-1">
         <div
           class="relative w-full cursor-default overflow-hidden rounded-lg text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-300 sm:text-sm"
         >
           <ComboboxInput
-            class="w-full bg-gray-100 px-4 py-3 rounded-lg outline-black flex-1 sm:flex-none"
+            class="w-full bg-gray-100 px-4 py-3 rounded-lg outline-black"
             placeholder="Search by name"
             :displayValue="(repo) => repo.name"
             @change="query = $event.target.value"

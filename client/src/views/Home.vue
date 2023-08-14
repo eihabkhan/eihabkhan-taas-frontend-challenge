@@ -57,7 +57,7 @@ export default defineComponent({
   <div class="overflow-hidden">
     <main class="container min-h-[calc(100vh-282px)] max-w-[1024px]">
       <div
-        class="relative mt-24 flex items-center justify-between flex-wrap gap-6"
+        class="relative mt-24 flex flex-col sm:flex-row items-start justify-between gap-6"
       >
         <h1 class="text-black font-bold text-3xl">My Repositories</h1>
 
