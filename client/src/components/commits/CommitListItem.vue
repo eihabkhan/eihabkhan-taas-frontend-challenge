@@ -3,12 +3,20 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
   data() {
-    return {}
+    return {
+      shaCopied: false,
+    }
   },
   props: {
     message: { type: String, default: 'commit message' },
     date: { type: Date, default: new Date() },
     sha: { type: String, default: '1234567' },
+  },
+  methods: {
+    copySha() {
+      navigator.clipboard.writeText(this.$props.sha as string)
+      this.shaCopied = true
+    },
   },
 })
 </script>
@@ -60,10 +68,12 @@ export default defineComponent({
           </div>
           <Popper content="Copied!">
             <BaseButton
+              @click="copySha"
               variant="tertiary"
               class="p-3 bg-gray-100 rounded-lg flex gap-2 text-gray-400"
             >
               <svg
+                v-if="!shaCopied"
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
@@ -83,6 +93,21 @@ export default defineComponent({
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
+                />
+              </svg>
+              <svg
+                v-else
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M4.5 12.75l6 6 9-13.5"
                 />
               </svg>
 

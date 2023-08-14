@@ -2,16 +2,23 @@
 import { defineComponent } from 'vue'
 import CommitListItem from '../commits/CommitListItem.vue'
 
+type Commit = {
+  commit: {
+    message: string
+    author: {
+      date: Date
+    }
+  }
+  sha: string
+}
+
 export default defineComponent({
   components: { CommitListItem },
-  props: { commits: Array },
+  props: { commits: Array<Commit> },
   data() {
     return {
       page: 1,
     }
-  },
-  async beforeMount() {
-    console.log('PROPS', this.$props.commits)
   },
 })
 </script>
@@ -19,7 +26,13 @@ export default defineComponent({
 <template>
   <div class="relative bg-transparent rounded-xl">
     <ul class="flex flex-col">
-      <CommitListItem />
+      <CommitListItem
+        v-for="commit in commits"
+        :key="commit.sha"
+        :message="commit.commit.message"
+        :sha="commit.sha.slice(0, 7)"
+        :date="new Date(commit.commit.author.date)"
+      />
     </ul>
   </div>
 </template>

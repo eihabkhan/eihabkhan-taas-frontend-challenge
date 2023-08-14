@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
+import Popper from 'vue3-popper'
 
 import './style.css'
 
@@ -12,4 +13,5 @@ createApp(App)
   .use(router)
   .component('BaseButton', BaseButton)
   .component('AppCopyright', AppCopyright)
+  .component('Popper', Popper)
   .mount('#app')
