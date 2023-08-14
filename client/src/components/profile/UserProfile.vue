@@ -1,12 +1,20 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { getUserData } from '../../services/User'
 
 export default defineComponent({
   data() {
     return {
-      name: 'John Doe',
-      imageUrl: '/images/profile-placeholder.png',
+      name: '',
+      imageUrl: '',
     }
+  },
+  async beforeMount() {
+    const { data } = await getUserData()
+    const { name, avatar_url } = data
+
+    this.name = name
+    this.imageUrl = avatar_url
   },
 })
 </script>

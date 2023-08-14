@@ -2,9 +2,17 @@
 import { defineComponent } from 'vue'
 import RepoListItem from '../repos/RepoListItem.vue'
 
+type Repo = {
+  id: string
+  name: string
+  stargazers_count: number
+  watchers_count: number
+  updated_at: Date
+}
+
 export default defineComponent({
   props: {
-    repos: Array,
+    repos: Array<Repo>,
   },
   components: { RepoListItem },
 })
