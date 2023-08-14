@@ -1,11 +1,39 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
+import axios from 'axios'
+
 import CommitlyLogo from '../components/base/CommitlyLogo.vue'
 import AppCopyright from '../components/AppCopyright.vue'
+import { GITHUB_AUTH_URL } from '../lib/constants'
+import client from '../lib/client'
+import { getToken, setToken } from '../lib/token'
+
 export default defineComponent({
   components: { CommitlyLogo },
   methods: {
-    signInWithGithub() {},
+    signInWithGithub() {
+      window.location.assign(GITHUB_AUTH_URL)
+    },
+    async getAccesstoken(code: string) {
+      await client.get(`/getAccessToken?code=${code}`).then((res) => {
+        const { data } = res
+
+        if (data.access_token) {
+          setToken(data.access_token)
+        }
+      })
+    },
+  },
+  beforeMount() {
+    const code = this.$route.query?.code as string
+
+    const token = getToken()
+
+    if (code && !token) {
+      this.getAccesstoken(code)
+    } else {
+      console.log('Already signed in')
+    }
   },
 })
 </script>
