@@ -5,4 +5,11 @@ import './style.css'
 import App from './App.vue'
 import router from './router'
 
-createApp(App).use(router).mount('#app')
+import BaseButton from './components/base/BaseButton.vue'
+import AppCopyright from './components/AppCopyright.vue'
+
+createApp(App)
+  .use(router)
+  .component('BaseButton', BaseButton)
+  .component('AppCopyright', AppCopyright)
+  .mount('#app')
