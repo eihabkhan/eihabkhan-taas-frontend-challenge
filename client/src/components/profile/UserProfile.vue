@@ -10,7 +10,7 @@ export default defineComponent({
       imageUrl: '',
     }
   },
-  async beforeMount() {
+  async created() {
     const { data } = await getUserData()
     const { name, avatar_url } = data
 

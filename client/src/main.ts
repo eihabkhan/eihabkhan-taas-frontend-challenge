@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import Popper from 'vue3-popper'
+import VueCookies from 'vue-cookies'
 
 import './style.css'
 

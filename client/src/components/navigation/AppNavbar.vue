@@ -4,13 +4,6 @@ import UserProfile from '../profile/UserProfile.vue'
 import { defineComponent } from 'vue'
 export default defineComponent({
   components: { CommitlyLogo, UserProfile },
-  props: {
-    name: String,
-    imageUrl: {
-      type: String,
-      default: '/images/profile-placeholder.png',
-    },
-  },
 })
 </script>
 
