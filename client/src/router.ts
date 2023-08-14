@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Login from './views/Login.vue'
 import Home from './views/Home.vue'
 import Repo from './views/Repo.vue'
+import { getToken } from './lib/token'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -34,16 +35,16 @@ const router = createRouter({
   ],
 })
 
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, _, next) => {
   if (to.matched.some((record) => record.meta.requiresAuth)) {
-    const token = localStorage.getItem('accessToken')
+    const token = getToken()
     if (token) {
       next()
     } else {
       next({ name: 'Login' })
     }
   } else if (to.matched.some((record) => record.meta.hideForAuth)) {
-    const token = localStorage.getItem('accessToken')
+    const token = getToken()
     if (token) {
       next({ path: '/' })
     } else {
