@@ -1,7 +1,11 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
+import ReturnIcon from '../components/icons/return.svg'
+import CommitList from '../components/commits/CommitList.vue'
 
-export default defineComponent({})
+export default defineComponent({
+  components: { ReturnIcon, CommitList },
+})
 </script>
 
 <template>
@@ -30,7 +34,7 @@ export default defineComponent({})
             <option value="main">main</option>
           </select>
         </div>
-        <!-- <CommitList :commits="commits" /> -->
+        <CommitList />
       </section>
     </main>
   </div>
