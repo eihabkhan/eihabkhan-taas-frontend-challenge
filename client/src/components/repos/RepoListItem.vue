@@ -1,9 +1,8 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 
-import StarIcon from '../icons/star.svg'
-import WatcherIcon from '../icons/watcher.svg'
 import BaseButton from '../base/BaseButton.vue'
+import SVGIcon from '../base/SVGIcon.vue'
 
 export default defineComponent({
   props: {
@@ -12,7 +11,7 @@ export default defineComponent({
     watchers: { type: Number, default: 0 },
     updatedAt: Date,
   },
-  components: { StarIcon, WatcherIcon, BaseButton },
+  components: { BaseButton, SVGIcon },
 })
 </script>
 
@@ -36,11 +35,11 @@ export default defineComponent({
       </div>
       <div class="flex items-center gap-10">
         <div class="flex gap-2 items-center">
-          <StarIcon />
+          <SVGIcon name="star" />
           <span>{{ stars }}</span>
         </div>
         <div class="flex gap-2 items-center">
-          <WatcherIcon />
+          <SVGIcon name="watcher" />
           <span>{{ watchers }}</span>
         </div>
       </div>
