@@ -14,7 +14,18 @@ export default defineComponent({
   <!-- h-[600px] overflow-y-scroll  -->
   <div class="relative">
     <ul class="flex flex-col">
-      <RepoListItem />
+      <RepoListItem
+        v-for="repo in repos"
+        :key="repo.id"
+        :name="repo.name"
+        :stars="repo.stargazers_count"
+        :watchers="repo.watchers_count"
+        :updatedAt="
+          new Date(repo.updated_at).toLocaleDateString('en-uk', {
+            dateStyle: 'long',
+          })
+        "
+      />
     </ul>
   </div>
 </template>
