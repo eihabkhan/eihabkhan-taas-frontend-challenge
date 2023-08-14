@@ -29,7 +29,7 @@ export default defineComponent({
 
 <template>
   <div
-    class="relative bg-transparent p-4 before:content-[''] before:block before:h-full before:w-[2px] before:left-[27px] before:bg-gray-200 before:absolute before:top-0 min-h-[150px]"
+    class="relative bg-transparent p-4 before:hidden before:content-[''] before:sm:block before:h-full before:w-[2px] before:left-[27px] before:bg-gray-200 before:absolute before:top-0 min-h-[150px]"
   >
     <div class="relative flex gap-6 z-10">
       <svg
@@ -38,6 +38,7 @@ export default defineComponent({
         viewBox="0 0 24 24"
         fill="#FBFBFB"
         xmlns="http://www.w3.org/2000/svg"
+        class="hidden sm:block"
       >
         <path
           d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z"
@@ -61,8 +62,10 @@ export default defineComponent({
           stroke-linejoin="round"
         />
       </svg>
-      <div class="flex flex-col gap-4 flex-1">
-        <span>{{ date?.toLocaleDateString('en-uk') }}</span>
+      <div class="flex flex-col gap-2 sm:gap-4 flex-1">
+        <span class="text-gray-600">{{
+          date?.toLocaleDateString('en-uk')
+        }}</span>
         <div
           class="flex justify-between items-center p-4 bg-white border-[1px] border-gray-200 rounded-xl"
         >
@@ -76,7 +79,7 @@ export default defineComponent({
             <BaseButton
               @click="copySha"
               variant="tertiary"
-              class="p-3 bg-gray-100 rounded-lg flex gap-2 text-gray-400"
+              class="p-3 bg-gray-100 rounded-lg gap-2 text-gray-400 hidden sm:flex"
             >
               <svg
                 v-if="!shaCopied"

@@ -38,7 +38,7 @@ export default defineComponent({
           <SVGIcon name="star" />
           <span>{{ stars }}</span>
         </div>
-        <div class="flex gap-2 items-center">
+        <div class="hidden sm:flex gap-2 items-center">
           <SVGIcon name="watcher" />
           <span>{{ watchers }}</span>
         </div>
