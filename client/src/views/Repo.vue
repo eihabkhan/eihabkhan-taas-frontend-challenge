@@ -1,12 +1,11 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
-import ReturnIcon from '../components/icons/return.svg'
 import CommitList from '../components/commits/CommitList.vue'
 import { getRepoBranches, getRepoCommits } from '../services/Repo'
 import { getUserData } from '../services/User'
 
 export default defineComponent({
-  components: { ReturnIcon, CommitList },
+  components: { CommitList },
   data() {
     return {
       username: '',
@@ -107,7 +106,7 @@ export default defineComponent({
             href="/"
             class="w-fit"
             variant="tertiary"
-            :leftIcon="ReturnIcon"
+            leftIcon="return"
           >
             Repositories
           </BaseButton>

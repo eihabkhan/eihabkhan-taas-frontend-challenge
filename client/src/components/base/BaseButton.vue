@@ -8,10 +8,10 @@ const validVariants = ['primary', 'secondary', 'tertiary']
 export default defineComponent({
   components: { SVGIcon },
   props: {
-    leftIcon: Object as PropType<Component>,
-    // leftIcon: { type: String },
-    // rightIcon: { type: String },
-    rightIcon: Object as PropType<Component>,
+    // leftIcon: Object as PropType<Component>,
+    //   rightIcon: Object as PropType<Component>,
+    leftIcon: { type: String },
+    rightIcon: { type: String },
     as: {
       type: [String, Object] as PropType<Component>,
       default: 'button',
@@ -42,7 +42,6 @@ export default defineComponent({
           },
         }
       )({
-        // TODO: Fix this type error
         variant: this.$props.variant,
       })
     },
@@ -73,11 +72,11 @@ export default defineComponent({
         d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
       ></path>
     </svg>
-    <!-- <SVGIcon v-if="$props.leftIcon" :name="$props.leftIcon" class="" /> -->
-    <component :is="$props.leftIcon"></component>
+    <SVGIcon v-if="$props.leftIcon" :name="$props.leftIcon" class="" />
+    <!-- <component :is="$props.leftIcon"></component> -->
     <slot> Button </slot>
-    <component :is="$props.rightIcon"></component>
-    <!-- <SVGIcon v-if="$props.rightIcon" :name="$props.rightIcon" class="" /> -->
+    <!-- <component :is="$props.rightIcon"></component> -->
+    <SVGIcon v-if="$props.rightIcon" :name="$props.rightIcon" class="" />
 
     <slot name="rightIcon"></slot>
   </component>

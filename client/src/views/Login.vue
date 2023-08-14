@@ -54,7 +54,7 @@ export default defineComponent({
     <!-- RIGHT SIDE ( LOGIN ) -->
     <div class="p-10 flex flex-col justify-between items-center flex-1">
       <CommitlyLogo />
-      <BaseButton @click="signInWithGithub" variant="primary">
+      <BaseButton @click="signInWithGithub" variant="primary" leftIcon="github">
         Sign in with GitHub
       </BaseButton>
       <AppCopyright />
