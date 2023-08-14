@@ -1,5 +1,6 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { formatRelative } from 'date-fns'
 
 export default defineComponent({
   data() {
@@ -16,6 +17,11 @@ export default defineComponent({
     copySha() {
       navigator.clipboard.writeText(this.$props.sha as string)
       this.shaCopied = true
+    },
+  },
+  computed: {
+    relativeDate() {
+      return formatRelative(this.$props.date as Date, new Date())
     },
   },
 })
@@ -63,7 +69,7 @@ export default defineComponent({
           <div class="flex flex-col gap-2">
             <p class="text-xl font-bold">{{ message }}</p>
             <span class="text-xs font-medium text-gray-400"
-              >Committed 12 hours ago</span
+              >Committed {{ relativeDate }}</span
             >
           </div>
           <Popper content="Copied!">
