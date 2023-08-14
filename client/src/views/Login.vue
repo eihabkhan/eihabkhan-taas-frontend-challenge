@@ -1,6 +1,5 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
-import axios from 'axios'
 
 import CommitlyLogo from '../components/base/CommitlyLogo.vue'
 import AppCopyright from '../components/AppCopyright.vue'
@@ -26,13 +25,10 @@ export default defineComponent({
   },
   beforeMount() {
     const code = this.$route.query?.code as string
-
     const token = getToken()
 
     if (code && !token) {
       this.getAccesstoken(code)
-    } else {
-      console.log('Already signed in')
     }
   },
 })
