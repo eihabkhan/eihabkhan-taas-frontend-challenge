@@ -2,7 +2,15 @@
 export default {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'faint-white': '#FBFBFB',
+      },
+      container: {
+        center: true,
+        padding: 16,
+      },
+    },
   },
   plugins: [],
 }
