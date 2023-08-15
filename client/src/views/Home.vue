@@ -1,7 +1,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import RepoList from '@components/repos/RepoList.vue'
-import { getRepos } from '@services/Repo'
+import { getRepos } from '@services/repo'
 import RepoSearchBar from '@components/repos/RepoSearchBar.vue'
 
 export default defineComponent({
@@ -75,3 +75,4 @@ export default defineComponent({
     </main>
   </div>
 </template>
+@/services/repo

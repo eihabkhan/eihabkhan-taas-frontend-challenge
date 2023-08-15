@@ -9,17 +9,29 @@ import { getToken, setToken } from '@lib/token'
 
 export default defineComponent({
   components: { CommitlyLogo },
+  data() {
+    return {
+      isLoading: false,
+    }
+  },
+  computed: {
+    buttonLabel() {
+      return this.isLoading ? 'Authenticating...' : 'Sign in with GitHub'
+    },
+  },
   methods: {
     signInWithGithub() {
       window.location.assign(GITHUB_AUTH_URL)
     },
     async getAccesstoken(code: string) {
+      this.isLoading = true
       await client.get(`/getAccessToken?code=${code}`).then((res) => {
         const { data } = res
 
         if (data.access_token) {
           setToken(data.access_token)
           this.$router.push('/')
+          this.isLoading = false
         }
       })
     },
@@ -54,8 +66,14 @@ export default defineComponent({
     <!-- RIGHT SIDE ( LOGIN ) -->
     <div class="p-10 flex flex-col justify-between items-center flex-1">
       <CommitlyLogo />
-      <BaseButton @click="signInWithGithub" variant="primary" leftIcon="github">
-        Sign in with GitHub
+      <BaseButton
+        :disabled="isLoading"
+        :isLoading="isLoading"
+        @click="signInWithGithub"
+        variant="primary"
+        :leftIcon="!isLoading ? 'github' : ''"
+      >
+        {{ buttonLabel }}
       </BaseButton>
       <AppCopyright />
     </div>

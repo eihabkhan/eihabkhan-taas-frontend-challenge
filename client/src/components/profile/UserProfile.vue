@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { getUserData } from '@services/User'
+import { getUserData } from '@services/user'
 import { removeToken } from '@lib/token'
 
 export default defineComponent({
@@ -46,3 +46,4 @@ export default defineComponent({
     />
   </div>
 </template>
+@/services/user
