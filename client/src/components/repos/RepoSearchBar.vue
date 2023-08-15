@@ -10,10 +10,11 @@ import {
   ComboboxOption,
   TransitionRoot,
 } from '@headlessui/vue'
+import { Repo } from '@/types/repo'
 
 const props = defineProps({
   repos: {
-    type: Array,
+    type: Array<Repo>,
     default: [],
   },
 })
@@ -32,7 +33,7 @@ let filteredRepos = computed(() =>
           .includes(query.value.toLowerCase().replace(/\s+/g, ''))
       )
 )
-watch(selected, (currVal, prevVal) => {
+watch(selected, (currVal, _) => {
   router.push({
     name: 'Repo',
     params: { repoId: currVal.name },
@@ -50,7 +51,7 @@ watch(selected, (currVal, prevVal) => {
           <ComboboxInput
             class="w-full bg-gray-100 px-4 py-3 rounded-lg outline-black"
             placeholder="Search by name"
-            :displayValue="(repo) => repo.name"
+            :displayValue="(repo) => (repo as Repo).name"
             @change="query = $event.target.value"
           />
           <ComboboxButton
@@ -87,7 +88,6 @@ watch(selected, (currVal, prevVal) => {
                   'bg-gray-600 text-white': active,
                   'text-gray-900': !active,
                 }"
-                @click="handleSelect"
               >
                 <span
                   class="block truncate"
