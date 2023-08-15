@@ -14,9 +14,18 @@ export default defineComponent({
       branches: [] as Branch[],
       commits: [] as Commit[],
       reachedEnd: false,
+      isLoading: true,
       page: 1,
       repo: this.$route.params.repoId as string,
     }
+  },
+  computed: {
+    userHasNoRepos() {
+      return (
+        (this.isLoading && !this.reachedEnd) ||
+        (!this.isLoading && this.commits.length != 0)
+      )
+    },
   },
   methods: {
     async getUserInfo() {
@@ -45,6 +54,7 @@ export default defineComponent({
   watch: {
     async branch() {
       this.reachedEnd = false
+      this.isLoading = true
       this.page = 1
       this.commits = []
       this.commits = await this.getBranchCommits(
@@ -53,6 +63,7 @@ export default defineComponent({
         this.repo,
         this.page
       )
+      this.isLoading = false
     },
     async page() {
       if (!this.reachedEnd) {
@@ -128,13 +139,10 @@ export default defineComponent({
             </option>
           </select>
         </div>
-        <CommitList :commits="commits" />
-        <div
-          v-if="commits.length > 0"
-          class="block my-10 text-center text-gray-400"
-        >
+        <CommitList :commits="commits" v-if="!isLoading" />
+        <div class="block my-10 text-center text-gray-400">
           <span v-if="reachedEnd" class="">You've reached the end 🚶‍♂️</span>
-          <span v-else>Loading...</span>
+          <span v-else-if="userHasNoRepos">Loading...</span>
         </div>
       </section>
     </main>
