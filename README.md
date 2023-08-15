@@ -18,8 +18,6 @@ CLIENT_ID=<fill these with your code>
 CLIENT_SECRET=<fill these with your code>
 ```
 
-3- Run `npm run start` or `yarn start` to start the proxy server.
-
 ### Setting up the client app
 
 1- If you are still in the root directory, make sure to `cd` into the client folder
@@ -33,7 +31,9 @@ VITE_CLIENT_ID=<same client id used in the server>
 VITE_CLIENT_SECRET=<you obtain this from GitHub>
 ```
 
-3- Run `npm run dev` or `yarn dev` to start the vite app
+### Running the app
+
+From the root folder run the command `yarn start` or `npm run start` this will run both the server and the client for you.
 
 ---
 
@@ -67,7 +67,7 @@ There are a lot of opportunities to improve the current app, here are what I thi
 
 - Use Composition API for better Type Safety 🛟
 - Use cookies instead of localStorage 😱
-- Utilize SSR to reduce the client JS size which makes for faster page loads
+- Utilize SSR to reduce the client JS size and have pages pre-rendered on the server, which makes for faster page loads 🚄
 
 ## Have an issue running the app?
 
