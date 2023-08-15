@@ -8,9 +8,9 @@ An app to browse your repos and see their commits
 
 We need to setup the proxy server that will be communicating with GitHub, to do that:
 
-1- In the root folder that you just cloned, **run `npm install` or `yarn`**. This will install the dependencies for the proxy server.
+1- In the root folder that you just cloned, run **`npm install`** or **`yarn`**. This will install the dependencies for the proxy server.
 
-2- In the root folder, add a `.env` file for proxy server. and add the following content:
+2- In the root folder, add a **`.env`** file for proxy server. and add the following content:
 
 ```env
 PORT=3333
@@ -20,9 +20,9 @@ CLIENT_SECRET=<fill these with your code>
 
 ### Setting up the client app
 
-1- If you are still in the root directory, make sure to `cd` into the client folder
+1- If you are still in the root directory, make sure to **`cd`** into the client folder
 
-2- Add a `.env` file, and add the following content:
+2- Add a **`.env`** file, and add the following content:
 
 ```env
 VITE_API_URL=http://localhost:3333
@@ -33,7 +33,7 @@ VITE_CLIENT_SECRET=<you obtain this from GitHub>
 
 ### Running the app
 
-From the root folder run the command `yarn start` or `npm run start` this will run both the server and the client for you.
+From the root folder run the command **`yarn start`** or **`npm run start`** this will run both the server and the client for you.
 
 ---
 
@@ -47,7 +47,7 @@ You can view the Figma design file [HERE](https://www.figma.com/file/09WnHXqHYGw
 
 ### Code
 
-I had 6 days to work on this challenge. Since my knowledge on Vue was very limited - it still is- I wanted to spend as much time as possible reading the docs, so I spent the first 3 days just reading the docs and watching course videos.
+I had 6 days to work on this challenge. Since my knowledge on Vue was very limited (It still is!) I wanted to spend as much time as possible reading the docs, so I spent the first 3 days just reading the docs and watching course videos.
 
 ## Tools Used
 
