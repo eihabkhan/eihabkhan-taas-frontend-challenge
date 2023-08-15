@@ -3,6 +3,7 @@ import { defineComponent } from 'vue'
 import CommitList from '@components/commits/CommitList.vue'
 import { getRepoBranches, getRepoCommits } from '@services/repo'
 import { getUserData } from '@services/user'
+import { Branch, Commit } from '@/types/repo'
 
 export default defineComponent({
   components: { CommitList },
@@ -10,8 +11,8 @@ export default defineComponent({
     return {
       username: '',
       branch: '',
-      branches: [],
-      commits: [],
+      branches: [] as Branch[],
+      commits: [] as Commit[],
       reachedEnd: false,
       page: 1,
       repo: this.$route.params.repoId as string,
@@ -128,7 +129,10 @@ export default defineComponent({
           </select>
         </div>
         <CommitList :commits="commits" />
-        <div class="block my-10 text-center text-gray-400">
+        <div
+          v-if="commits.length > 0"
+          class="block my-10 text-center text-gray-400"
+        >
           <span v-if="reachedEnd" class="">You've reached the end 🚶‍♂️</span>
           <span v-else>Loading...</span>
         </div>

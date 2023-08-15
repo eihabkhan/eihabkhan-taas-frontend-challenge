@@ -14,7 +14,11 @@ export default defineComponent({
 <template>
   <!-- h-[600px] overflow-y-scroll  -->
   <div class="relative">
-    <ul class="flex flex-col">
+    <EmptyState
+      v-if="$props?.repos?.length === 0"
+      message="You don't have any repos yet."
+    />
+    <ul v-else class="flex flex-col">
       <RepoListItem
         v-for="repo in repos"
         :key="repo.id"

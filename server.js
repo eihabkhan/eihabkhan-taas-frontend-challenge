@@ -60,6 +60,7 @@ app.get('/getUserRepos', async function (req, res) {
       },
     })
     .then((response) => {
+      // res.json(response.data)
       res.json(response.data)
     })
     .catch((error) => console.log('Error getting user repos:', error))
@@ -96,7 +97,8 @@ app.get('/getCommits', async function (req, res) {
       }
     )
     .then((response) => {
-      res.json(response.data)
+      // res.json(response.data)
+      res.json([])
     })
     .catch((error) => console.log('Error getting commits:', error))
 })

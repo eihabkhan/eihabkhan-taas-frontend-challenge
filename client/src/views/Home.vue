@@ -3,6 +3,7 @@ import { defineComponent } from 'vue'
 import RepoList from '@components/repos/RepoList.vue'
 import { getRepos } from '@services/repo'
 import RepoSearchBar from '@components/repos/RepoSearchBar.vue'
+import { Repo } from '@/types/repo'
 
 export default defineComponent({
   components: {
@@ -11,21 +12,25 @@ export default defineComponent({
   },
   data() {
     return {
-      repos: [],
+      repos: [] as Repo[],
       page: 1,
       reachedEnd: false,
-
+      isLoading: true,
       searchQuery: '',
     }
   },
+  computed: {
+    userHasNoRepos() {
+      return (
+        (this.isLoading && !this.reachedEnd) ||
+        (!this.isLoading && this.repos.length != 0)
+      )
+    },
+  },
   async created() {
     const { data } = await getRepos()
-
     this.repos = data
-
-    console.log('====================================')
-    console.log(data)
-    console.log('====================================')
+    this.isLoading = false
   },
   mounted() {
     window.onscroll = () => {
@@ -43,6 +48,7 @@ export default defineComponent({
       if (!this.reachedEnd) {
         const { data } = await getRepos(value)
         if (data.length > 0) {
+          this.isLoading = false
           this.repos = this.repos.concat(data)
         } else {
           this.reachedEnd = true
@@ -66,10 +72,10 @@ export default defineComponent({
       <section
         class="mt-8 bg-white border-[1px] border-black/10 p-4 pb-0 rounded-xl"
       >
-        <RepoList :repos="repos" />
+        <RepoList :repos="repos" v-if="!isLoading" />
         <div class="block my-10 text-center text-gray-400">
           <span v-if="reachedEnd" class="">You've reached the end 🚶‍♂️</span>
-          <span v-else>Loading...</span>
+          <span v-else-if="userHasNoRepos">Loading...</span>
         </div>
       </section>
     </main>

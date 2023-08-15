@@ -6,7 +6,7 @@
   "author": "Eihab Khan <mastereihab@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "concurrently --names \"Server,Client\" -c \"bgBlue.bold,bgMagenta.bold\" \"node server.js\" \"cd client && npm run dev\""
+    "start": "concurrently --names \"Server,Client\" -c \"bgCyan.bold,bgGreen.bold\" \"node server.js\" \"cd client && npm run dev\""
   },
   "dependencies": {
     "axios": "^1.4.0",

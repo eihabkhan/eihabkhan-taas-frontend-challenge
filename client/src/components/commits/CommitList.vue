@@ -1,16 +1,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import CommitListItem from '@components/commits/CommitListItem.vue'
-
-type Commit = {
-  commit: {
-    message: string
-    author: {
-      date: Date
-    }
-  }
-  sha: string
-}
+import { Commit } from '@/types/repo'
 
 export default defineComponent({
   components: { CommitListItem },
@@ -25,7 +16,11 @@ export default defineComponent({
 
 <template>
   <div class="relative bg-transparent rounded-xl">
-    <ul class="flex flex-col">
+    <EmptyState
+      v-if="$props?.commits?.length === 0"
+      message="You don't have any repos yet."
+    />
+    <ul v-else class="flex flex-col">
       <CommitListItem
         v-for="commit in commits"
         :key="commit.sha"
