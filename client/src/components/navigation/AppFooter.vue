@@ -1,6 +1,7 @@
 <script lang="ts">
-import AppCopyright from '../AppCopyright.vue'
 import { defineComponent } from 'vue'
+import AppCopyright from '@components/AppCopyright.vue'
+
 export default defineComponent({
   components: { AppCopyright },
 })

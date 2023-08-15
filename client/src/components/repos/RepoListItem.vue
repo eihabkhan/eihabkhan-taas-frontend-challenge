@@ -1,8 +1,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
-
-import BaseButton from '../base/BaseButton.vue'
-import SVGIcon from '../base/SVGIcon.vue'
+import BaseButton from '@components/base/BaseButton.vue'
+import SVGIcon from '@components/base/SVGIcon.vue'
 
 export default defineComponent({
   props: {

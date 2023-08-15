@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
-import CommitListItem from '../commits/CommitListItem.vue'
+import CommitListItem from '@components/commits/CommitListItem.vue'
 
 type Commit = {
   commit: {

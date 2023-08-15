@@ -1,8 +1,8 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
-import CommitList from '../components/commits/CommitList.vue'
-import { getRepoBranches, getRepoCommits } from '../services/Repo'
-import { getUserData } from '../services/User'
+import CommitList from '@components/commits/CommitList.vue'
+import { getRepoBranches, getRepoCommits } from '@services/Repo'
+import { getUserData } from '@services/User'
 
 export default defineComponent({
   components: { CommitList },

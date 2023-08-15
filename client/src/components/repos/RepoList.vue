@@ -1,14 +1,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
-import RepoListItem from '../repos/RepoListItem.vue'
-
-type Repo = {
-  id: string
-  name: string
-  stargazers_count: number
-  watchers_count: number
-  updated_at: Date
-}
+import RepoListItem from '@components/repos/RepoListItem.vue'
+import { Repo } from '@/types/repo'
 
 export default defineComponent({
   props: {

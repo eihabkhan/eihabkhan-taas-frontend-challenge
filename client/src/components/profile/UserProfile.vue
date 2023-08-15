@@ -1,7 +1,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { getUserData } from '../../services/User'
-import { removeToken } from '../../lib/token'
+import { getUserData } from '@services/User'
+import { removeToken } from '@lib/token'
 
 export default defineComponent({
   data() {

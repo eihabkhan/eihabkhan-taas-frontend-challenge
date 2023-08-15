@@ -1,6 +1,6 @@
-<script setup>
+<script setup lang="ts">
 import { ref, computed, watch } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
+import { useRouter } from 'vue-router'
 
 import {
   Combobox,
@@ -21,7 +21,6 @@ const props = defineProps({
 let selected = ref(props.repos[0])
 let query = ref('')
 const router = useRouter()
-const route = useRoute()
 
 let filteredRepos = computed(() =>
   query.value === ''

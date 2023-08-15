@@ -8,7 +8,9 @@ const props = defineProps({
   },
 })
 
-const icon = defineAsyncComponent(() => import(`../icons/${props.name}.svg`))
+const icon = defineAsyncComponent(
+  () => import(`@/components/icons/${props.name}.svg`)
+)
 </script>
 
 <template>

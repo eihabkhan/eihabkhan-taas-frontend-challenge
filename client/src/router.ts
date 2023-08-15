@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import Login from './views/Login.vue'
-import Home from './views/Home.vue'
-import Repo from './views/Repo.vue'
-import { getToken } from './lib/token'
+import Login from '@views/Login.vue'
+import Home from '@views/Home.vue'
+import Repo from '@views/Repo.vue'
+import { getToken } from '@lib/token'
 
 const router = createRouter({
   history: createWebHistory(),

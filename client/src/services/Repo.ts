@@ -1,5 +1,5 @@
-import client from '../lib/client'
-import { getToken } from '../lib/token'
+import client from '@lib/client'
+import { getToken } from '@lib/token'
 
 export const getRepos = async (page = 1) => {
   // const that = this

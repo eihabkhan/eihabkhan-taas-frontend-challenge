@@ -1,8 +1,8 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
-import RepoList from '../components/repos/RepoList.vue'
-import { getRepos } from '../services/Repo'
-import RepoSearchBar from '../components/repos/RepoSearchBar.vue'
+import RepoList from '@components/repos/RepoList.vue'
+import { getRepos } from '@services/Repo'
+import RepoSearchBar from '@components/repos/RepoSearchBar.vue'
 
 export default defineComponent({
   components: {
@@ -57,7 +57,7 @@ export default defineComponent({
   <div class="overflow-hidden">
     <main class="container min-h-[calc(100vh-282px)] max-w-[1024px]">
       <div
-        class="relative mt-24 flex flex-col sm:flex-row items-start justify-between gap-6"
+        class="relative mt-24 flex flex-col sm:flex-row sm:items-center items-starts justify-between gap-6"
       >
         <h1 class="text-black font-bold text-3xl">My Repositories</h1>
 

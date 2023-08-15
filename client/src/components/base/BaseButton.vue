@@ -1,7 +1,7 @@
 <script lang="ts">
 import { defineComponent, PropType, Component } from 'vue'
-import SVGIcon from './SVGIcon.vue'
 import { cva } from 'class-variance-authority'
+import SVGIcon from '@components/base/SVGIcon.vue'
 
 const validVariants = ['primary', 'secondary', 'tertiary']
 

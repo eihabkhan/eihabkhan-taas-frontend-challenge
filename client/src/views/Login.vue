@@ -1,11 +1,11 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 
-import CommitlyLogo from '../components/base/CommitlyLogo.vue'
-import AppCopyright from '../components/AppCopyright.vue'
-import { GITHUB_AUTH_URL } from '../lib/constants'
-import client from '../lib/client'
-import { getToken, setToken } from '../lib/token'
+import CommitlyLogo from '@components/base/CommitlyLogo.vue'
+import AppCopyright from '@components/AppCopyright.vue'
+import { GITHUB_AUTH_URL } from '@lib/constants'
+import client from '@lib/client'
+import { getToken, setToken } from '@lib/token'
 
 export default defineComponent({
   components: { CommitlyLogo },

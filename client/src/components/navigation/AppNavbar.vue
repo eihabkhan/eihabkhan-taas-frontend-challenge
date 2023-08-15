@@ -1,7 +1,8 @@
 <script lang="ts">
-import CommitlyLogo from '../base/CommitlyLogo.vue'
-import UserProfile from '../profile/UserProfile.vue'
 import { defineComponent } from 'vue'
+import CommitlyLogo from '@components/base/CommitlyLogo.vue'
+import UserProfile from '@components/profile/UserProfile.vue'
+
 export default defineComponent({
   components: { CommitlyLogo, UserProfile },
 })
